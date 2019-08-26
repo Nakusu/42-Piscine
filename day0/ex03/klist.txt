@@ -1,0 +1,5 @@
+Credentials cache: API:BD8510F4-D484-478E-84A5-2A60EF3A8F30
+        Principal: llepage@42.FR
+
+  Issued                Expires             Flags    Principal
+Aug 26 13:11:26 2019  Sep  2 13:11:21 2019  FPIA   krbtgt/42.FR@42.FR
