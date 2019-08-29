@@ -1,5 +1,0 @@
-Credentials cache: API:D29E42A7-6A4A-4560-B33D-1EBA1A7CCAA7
-        Principal: llepage@42.FR
-
-  Issued                Expires               Principal
-Aug 28 10:15:23 2019  Sep  4 10:15:18 2019  krbtgt/42.FR@42.FR
