@@ -1,2 +1,0 @@
-    Name            Cache name                                 Expires
-* llepage@42.FR   API:3EAE0F86-84C9-4AFB-9D58-EAE7000AC9C9   Sep  2 17:58:18 2019
