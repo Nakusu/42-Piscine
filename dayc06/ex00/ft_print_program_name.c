@@ -6,7 +6,7 @@
 /*   By: llepage <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/06 14:10:48 by llepage           #+#    #+#             */
-/*   Updated: 2019/09/06 14:18:48 by llepage          ###   ########.fr       */
+/*   Updated: 2019/09/07 17:11:25 by llepage          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,13 @@ int		stringlenght(char *string)
 	return (i);
 }
 
-int		main(int arc, char **argv)
+int		main(int argc, char **argv)
 {
-	int size = stringlenght(argv[0]);
+	int a;
+	int size;
+
+	size = stringlenght(argv[0]);
+	a = argc;
 	write(1, argv[0], size);
+	write(1, "\n", 1);
 }
