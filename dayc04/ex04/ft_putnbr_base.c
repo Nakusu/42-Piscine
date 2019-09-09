@@ -6,7 +6,7 @@
 /*   By: llepage <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/04 19:53:20 by llepage           #+#    #+#             */
-/*   Updated: 2019/09/04 21:54:56 by llepage          ###   ########.fr       */
+/*   Updated: 2019/09/05 15:35:46 by llepage          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int		stringlenght(char *string)
 	return (i);
 }
 
-int search(char *string, char letter, int i)
+int		search(char *string, char letter, int i)
 {
 	i++;
 	while (string[i])
@@ -57,30 +57,25 @@ void	ft_putchar(char letter)
 
 void	ft_putnbr_base(int nbr, char *base)
 {
-	int lenbase;
-	long int stock;
-	
+	int			lenbase;
+	long int	stock;
+
 	stock = nbr;
 	lenbase = stringlenght(base);
 	if (checkbase(base) == 2)
 	{
 		if (nbr < 0)
 		{
-			nbr = -nbr;
+			stock = -stock;
 			ft_putchar('-');
 		}
 		if (lenbase > 1)
-		{	
+		{
 			if (nbr != 0)
 			{
-				ft_putnbr_base((nbr / lenbase), base);
-				ft_putchar(base[(nbr % lenbase)]);
+				ft_putnbr_base((stock / lenbase), base);
+				ft_putchar(base[(stock % lenbase)]);
 			}
 		}
 	}
-}	
-
-int main()
-{
-	ft_putnbr_base(-58546, "50685");
 }

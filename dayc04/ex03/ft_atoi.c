@@ -6,7 +6,7 @@
 /*   By: llepage <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/04 14:11:03 by llepage           #+#    #+#             */
-/*   Updated: 2019/09/04 18:09:44 by llepage          ###   ########.fr       */
+/*   Updated: 2019/09/05 13:55:55 by llepage          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,16 +45,19 @@ int		ft_atoi(char *str)
 	n = 0;
 	signe = 0;
 	i = 0;
-	while (str[i])
+	if (type(str[i]) == 4)
+		return (n);
+	while (type(str[i]) == 2)
+		i++;
+	while (type(str[i]) == 3)
 	{
-		if (type(str[i]) == 2 && type(str[i - 1]) != 2 && i != 0)
-			return (editsigne(n, signe));
-		else if (type(str[i]) == 1)
-			n = n * 10 + (str[i] - 48);
-		else if (type(str[i]) == 4)
-			return (editsigne(n, signe));
-		else if (str[i] == '-')
+		if (str[i] == '-')
 			signe++;
+		i++;
+	}
+	while (type(str[i]) == 1)
+	{
+		n = (n * 10 + (str[i] - 48));
 		i++;
 	}
 	return (editsigne(n, signe));

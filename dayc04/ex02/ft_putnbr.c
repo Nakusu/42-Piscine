@@ -6,7 +6,7 @@
 /*   By: llepage <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/04 14:00:09 by llepage           #+#    #+#             */
-/*   Updated: 2019/09/04 14:10:30 by llepage          ###   ########.fr       */
+/*   Updated: 2019/09/05 15:36:01 by llepage          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	ft_putnbr(int nb)
 	}
 	if (stock >= 0 && stock <= 9)
 	{
-		putchar(nb + 48);
+		putchar(stock + 48);
 	}
 	else
 	{
