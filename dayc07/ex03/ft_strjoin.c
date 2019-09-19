@@ -5,97 +5,100 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: llepage <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/08 14:23:14 by llepage           #+#    #+#             */
-/*   Updated: 2019/09/08 21:09:03 by llepage          ###   ########.fr       */
+/*   Created: 2019/09/12 14:55:26 by llepage           #+#    #+#             */
+/*   Updated: 2019/09/12 15:07:54 by llepage          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-int		doublelength(char **string)
+int		ft_strlen(char *str)
 {
-	int i;
-	int s;
-	int total;
+	int iter;
 
-	i = 1;
-	s = 0;
-	total = 0;
-	while (string[i])
-	{
-		while (string[i][s])
-		{
-			total++;
-			s++;
-		}
-		s = 0;
-		i++;
-	}
-	return (total);
+	iter = 0;
+	while (str[iter])
+		iter++;
+	return (iter);
 }
 
-int		sz(char *s1, char **s2, int t)
+int		ft_addsep(char **str, char *sep, int pos)
 {
+	int iter;
+
+	iter = 0;
+	while (sep[iter])
+	{
+		str[0][pos] = sep[iter];
+		pos++;
+		iter++;
+	}
+	return (pos);
+}
+
+int		ft_addstr(char **str, char **strs, int pos_str, int pos_strs)
+{
+	int iter;
+
+	iter = 0;
+	while (strs[pos_strs][iter])
+	{
+		str[0][pos_str] = strs[pos_strs][iter];
+		iter++;
+		pos_str++;
+	}
+	return (pos_str);
+}
+
+int		ft_initstr(char **str, int size, char **strs, char *sep)
+{
+	int tot_size;
 	int i;
+	int j;
 
 	i = 0;
-	if (t == 1)
-		while (s1[i])
-			i++;
+	tot_size = 0;
+	while (i < size)
+	{
+		j = 0;
+		while (strs[i][j])
+		{
+			tot_size++;
+			j++;
+		}
+		i++;
+	}
+	tot_size += ft_strlen(sep) * (size - 1) + 1;
+	if (size <= 0)
+	{
+		*str = malloc(sizeof(*str));
+		tot_size = 0;
+	}
 	else
-		while (s2[i])
-			i++;
-	return (i);
+		*str = malloc(sizeof(*str) * tot_size);
+	return (tot_size);
 }
 
 char	*ft_strjoin(int size, char **strs, char *sep)
 {
-	int		i;
-	int		p;
-	int		s;
-	char	*stock;
+	char	*res;
+	int		iter;
+	int		count;
 
-	i = 1;
-	p = 0;
-	s = 0;
-	stock = malloc((doublelength(strs) + ((sz(sep, strs, 1) - 1) * sz(sep, strs, 2))) * sizeof(char));
-	while (strs[i])
+	if (ft_initstr(&res, size, strs, sep) == 0)
 	{
-		while (strs[i][s])
-		{
-			stock[p] = strs[i][s];
-			s++;
-			p++;
-		}
-		s = 0;
-		while (sep[s] && i != sz(sep, strs, 2) - 1)
-		{
-			stock[p] = sep[s];
-			p++;
-			s++;
-		}
-		s = 0;
-		i++;
+		res[0] = 0;
+		return (res);
 	}
-	stock[p] = '\0';
-	return (stock);
-}
-
-int		main(int argc, char **argv)
-{
-	char	sep[] = ",";
-	int		i;
-	
-	char *test = ft_strjoin(3, argv, sep);
-	i = 0;
-	while (test[i])
+	iter = 0;
+	count = 0;
+	while (count < size)
 	{
-		printf("%c", test[i]);
-		i++;
+		iter = ft_addstr(&res, strs, iter, count);
+		if (count < size - 1)
+			iter = ft_addsep(&res, sep, iter);
+		count++;
 	}
-}
-
-int test()
-{
-	return (0);
+	res[iter] = 0;
+	return (res);
 }
