@@ -12,13 +12,12 @@
 
 #include <unistd.h>
 
-int		stringlength(char *string)
+int		strlen(char *string)
 {
 	int i;
 
 	i = 0;
-	while (string[i])
-		i++;
+	while (string[i++])
 	return (i);
 }
 
@@ -27,10 +26,9 @@ int		main(int argc, char **argv)
 	int i;
 
 	i = 1;
-	while (i <= (argc - 1))
+	while (argv[i++])
 	{
-		write(1, argv[i], stringlength(argv[i]));
+		write(1, argv[i], strlen(argv[i]));
 		write(1, "\n", 1);
-		i++;
 	}
 }
