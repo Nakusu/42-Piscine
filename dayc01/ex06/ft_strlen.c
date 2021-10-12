@@ -14,15 +14,9 @@
 
 int		ft_strlen(char *str)
 {
-	int pos;
-	int count;
-
-	pos = 0;
-	count = 1;
-	while (str[pos])
-	{
-		pos++;
-		count++;
-	}
-	return (count);
+	int i;
+	
+	i = 0;
+	while (str[i++]);
+	return (i);
 }
