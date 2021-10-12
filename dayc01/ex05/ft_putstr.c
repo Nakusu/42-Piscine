@@ -18,8 +18,5 @@ void	ft_putstr(char *str)
 
 	pos = 0;
 	while (str[pos])
-	{
-		write(1, &str[pos], 1);
-		pos++;
-	}
+		write(1, &str[pos++], 1);
 }
